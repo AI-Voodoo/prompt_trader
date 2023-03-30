@@ -11,3 +11,5 @@ The 'find_elbow_point' function is defined to find the optimal number of cluster
 The input headlines are read from a file, preprocessed, and embedded using the Universal Sentence Encoder. KMeans clustering is applied to the embeddings, and the elbow method is used to determine the optimal number of clusters (k_optimal). Clusters are then created, and the average similarity and top words within each cluster are calculated.
 
 The code sorts the clusters by the number of lines and similarity, and prints high-priority news clusters (with similarity > 0.270) and low-priority news clusters (similarity <= 0.270). It then generates a prompt for the AI using the most important cluster's top words and sentiment analysis results.
+
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/clusters.png?raw=true)
