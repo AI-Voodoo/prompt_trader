@@ -1,0 +1,17 @@
+altair==4.2.2
+gTTS==2.3.1
+keras==2.12.0
+matplotlib==3.7.1
+nltk==3.8.1
+numpy==1.23.5
+oandapyV20==0.7.2
+openai==0.27.2
+pandas==1.5.3
+python_dateutil==2.8.2
+requests==2.28.2
+scikit_learn==1.2.2
+scipy==1.10.1
+sparse_dot_topn==0.3.4
+tensorflow_hub==0.13.0
+termcolor==2.2.0
+tldextract==3.4.0
