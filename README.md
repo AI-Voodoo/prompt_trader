@@ -1,5 +1,5 @@
 # prompt_trader
-This code focuses on Prompt Engineering Generative AI Trading Decisions using news headlines as input data. It processes the data, clusters the headlines based on similarity, analyzes sentiment, and generates a prompt for AI-based trading suggestions.
+This code focuses on Prompt Engineering Generative AI Trading Decisions using most mentioned news headlines as input data. It processes the data, clusters the headlines based on similarity to (find most mentioned news themes), analyzes sentiment, and generates a prompt for AI-based trading suggestions based on these popular news themes.
 
 First, it imports necessary libraries such as os, string, nltk, numpy, TensorFlow Hub, and scikit-learn. The code then defines a text preprocessing function that removes stopwords, punctuation, lemmatizes words, and filters non-alphabetic tokens.
 
