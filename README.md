@@ -1,6 +1,9 @@
 # prompt_trader
 Source code for a personal project to Prompt Engineer Generative AI Trading Decisions using news headlines as input data. The project processes the data, clusters the headlines based on similarity (finding the most mentioned news themes), analyzes sentiment, and generates a prompt for LLM-based trading suggestions, using these popular news themes and sentiment.
 
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/Prompt-Answer.png?raw=true)
+
+
 First, it imports necessary libraries such as os, string, nltk, numpy, TensorFlow Hub, and scikit-learn. The code then defines a text preprocessing function that removes stopwords, punctuation, lemmatizes words, and filters non-alphabetic tokens.
 
 The 'find_elbow_point' function is defined to find the optimal number of clusters for KMeans clustering. Sentiment analysis is performed using the 'analyze_sentiment' function, which categorizes the sentiment as positive, negative, or neutral based on a threshold.
