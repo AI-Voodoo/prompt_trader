@@ -1,5 +1,5 @@
 # Prompt Trader
-Source code for a personal project to Prompt Engineer Generative AI Trading Decisions using 60 random news headlines as input data. The project processes the data, clusters the headlines based on similarity (finding the most mentioned news themes), analyzes sentiment, and generates a prompt for LLM-based trading suggestions, using these popular news themes and sentiment.
+Source code for a personal project to Prompt Engineer Generative AI Trading Decisions using 60 recent, randomly selected news headlines as input data. The project processes the data, clusters the headlines based on similarity (finding the most mentioned news themes), analyzes sentiment, and generates a prompt for LLM-based trading suggestions, using these popular news themes and sentiment.
 
 First, it imports necessary libraries such as os, string, nltk, numpy, TensorFlow Hub, and scikit-learn. The code then defines a text preprocessing function that removes stopwords, punctuation, lemmatizes words, and filters non-alphabetic tokens.
 
