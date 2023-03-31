@@ -10,8 +10,8 @@ The input headlines are read from a file, preprocessed, and embedded using the U
 The code sorts the clusters by the number of lines and similarity, and prints high-priority news clusters (with similarity > 0.270) and low-priority news clusters (similarity <= 0.270). It then generates a prompt for the AI using the most important cluster's top words and sentiment analysis results.
 
 ## Initial News Headline Clustering & Sentiment Results:
-![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/prompt-code.png?raw=true)
 ![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/clusters.png?raw=true)
 
 ## Prompt Creation (Clustered & Sentiment Data) & LLM Trading Analysis:
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/prompt-code.png?raw=true)
 ![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/Prompt-Answer2.png?raw=true)
