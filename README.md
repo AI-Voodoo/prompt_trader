@@ -33,8 +33,8 @@ Plot the elbow method graph to show the optimal k value:
 Top Prompt:
 ![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/top-prompt.png?raw=true)
 
-Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
-![Alt text describing the image]()
+LLM Answer:
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/p1-answer.png?raw=true)
 
 Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
 ![Alt text describing the image]()
