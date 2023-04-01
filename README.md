@@ -42,10 +42,21 @@ Market Validation: EUR/USD
 #### 2nd prompt Q & A with LLM + Market Validation
 
 2nd Prompt:
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/2nd-prompt.png?raw=true)
+
+LLM Answer:
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/2nd-answer.png?raw=true)
+
+Market Validation: PDR S&P 500 ETF (SPY)
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/SPDR%20S&P%20500%20ETF.png?raw=true)
+
+#### 3rd prompt Q & A with LLM + Market Validation
+
+3rd Prompt:
 ![Alt text describing the image]()
 
 LLM Answer:
 ![Alt text describing the image]()
 
-Market Validation:
+Market Validation: 
 ![Alt text describing the image]()
