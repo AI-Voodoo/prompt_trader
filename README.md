@@ -21,12 +21,18 @@ The prompts are designed in a way that provides clear instructions to the AI mod
 11. For the top three clusters, generate trading prompts that include the cluster's top words, sentiment, and headlines. The prompts ask the LLM to create a trading strategy based on the given information.
 
 
+## Workflow & Results:
+Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
+![Alt text describing the image]()
 
-This script provides a systematic way to analyze news headlines, group them into clusters based on their semantic similarity, and then use the information from the top clusters to generate trading prompts for the user.
+Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
+![Alt text describing the image]()
 
-## Initial News Headline Clustering & Sentiment Results:
-![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/clusters.png?raw=true)
+Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
+![Alt text describing the image]()
 
-## Prompt Creation (Clustered & Sentiment Data) & LLM Trading Analysis:
-![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/prompt-code.png?raw=true)
-![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/Prompt-Answer2.png?raw=true)
+Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
+![Alt text describing the image]()
+
+Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
+![Alt text describing the image]()
