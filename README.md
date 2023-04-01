@@ -25,7 +25,7 @@ The prompts are designed in a way that provides clear instructions to the AI mod
 Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
 ![Alt text describing the image]()
 
-Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
+Plot the elbow method graph to show the optimal k value
 ![Alt text describing the image]()
 
 Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
