@@ -1,13 +1,27 @@
 # Prompt Trader
-Source code for a personal project to prompt engineer generative AI trading decisions using 60 recent, randomly selected news headlines as input data. The project processes the data, clusters the headlines based on similarity (finding the most mentioned news themes), analyzes sentiment, and generates a prompt for LLM-based trading suggestions, using these popular news themes and sentiment.
+This Python script is designed to perform prompt engineering by leveraging natural language processing (NLP) outputs to create high-quality input prompts for generative AI models. The main goal is to generate trading prompts based on the most prevalent themes in 100 recent news headlines, which can then be fed into an AI model for generating detailed trading strategies.
 
-First, it imports necessary libraries such as os, string, nltk, numpy, TensorFlow Hub, and scikit-learn. The code then defines a text preprocessing function that removes stopwords, punctuation, lemmatizes words, and filters non-alphabetic tokens.
+By preprocessing, clustering, and analyzing the sentiment of headlines, the script identifies the most relevant themes and their associated sentiment. These themes, along with the sentiment and specific details from the headlines, are used to construct well-formed prompts for generative AI models.
 
-The 'find_elbow_point' function is defined to find the optimal number of clusters for KMeans clustering. Sentiment analysis is performed using the 'analyze_sentiment' function, which categorizes the sentiment as positive, negative, or neutral based on a threshold.
+The prompts are designed in a way that provides clear instructions to the AI model, allowing it to focus on the specific themes and sentiment found in the headlines. This approach helps the generative AI model to produce more relevant and context-aware trading strategies based on the input prompts and actually return specific trading instruments it deems useful to achieve the strategy objectives.
 
-The input headlines are read from a file, preprocessed, and embedded using the Universal Sentence Encoder. KMeans clustering is applied to the embeddings, and the elbow method is used to determine the optimal number of clusters (k_optimal). Clusters are then created, and the average similarity and top words within each cluster are calculated.
 
-The code sorts the clusters by the number of lines and similarity, and prints high-priority news clusters (with similarity > 0.270) and low-priority news clusters (similarity <= 0.270). It then generates a prompt for the AI using the most important cluster's top words and sentiment analysis results.
+The script follows these main steps:
+
+Import the necessary libraries and modules for text processing, clustering, and visualization.
+Download the required NLTK resources, such as tokenizers, stopwords, and sentiment lexicons.
+Define the preprocess_text function to remove punctuation, tokenize, filter stopwords, lemmatize, and keep only alphabetic tokens with length greater than 1.
+Define the find_elbow_point function to find the optimal k value for clustering using the elbow method.
+Define the analyze_sentiment function to compute the sentiment of a given text using the SentimentIntensityAnalyzer from NLTK.
+Read the "100-headlines.txt" file and preprocess each headline, storing them in separate lists for further processing.
+Load the Universal Sentence Encoder from TensorFlow Hub and compute embeddings for the preprocessed headlines.
+Perform K-means clustering on the embeddings using a range of k values, and plot the elbow method graph to find the optimal k value.
+Fit the K-means model with the optimal k value and assign each headline to its corresponding cluster.
+Calculate the average similarity and top words within each cluster.
+Filter the clusters based on a similarity threshold (cutoff) and sort them in descending order based on the number of headlines and similarity.
+Print the high-priority news clusters with their top words, sentiment, and headlines.
+For the top three clusters, generate trading prompts that include the cluster's top words, sentiment, and headlines. The prompts ask the user to create a trading strategy based on the given information.
+This script provides a systematic way to analyze news headlines, group them into clusters based on their semantic similarity, and then use the information from the top clusters to generate trading prompts for the user.
 
 ## Initial News Headline Clustering & Sentiment Results:
 ![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/clusters.png?raw=true)
