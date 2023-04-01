@@ -26,7 +26,7 @@ Perform K-means clustering on the embeddings and assign each headline to its cor
 ![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/clustering.png?raw=true)
 
 Plot the elbow method graph to show the optimal k value
-![Alt text describing the image](![image](https://user-images.githubusercontent.com/41381728/229295268-0955c9bc-b5b1-42de-aeea-d62bde307769.png)
+![Alt text describing the image]([https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/clustering.png?raw=true](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/Figure_1.png?raw=true))
 
 Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
 ![Alt text describing the image]()
