@@ -61,8 +61,8 @@ def analyze_sentiment(text):
     else:
         return 'neutral'
 
-#input test to analyze
-with open("c3.csv", "r", encoding="utf-8") as file:
+#input: 100 most recent headlines from Bloomberg
+with open("100-headlines.txt", "r", encoding="utf-8") as file:
     lines = file.readlines()
 
 #lists are initialized: "preprocessed_lines": This list will store the preprocessed version of each line from the input file. "original_non_blank_lines": This list will store the original lines without any leading/trailing whitespace, but only if they are not empty or just whitespace. "original_line_indices": This list will store the index of each non-blank line in the input file.
@@ -82,7 +82,7 @@ embeddings = embed(preprocessed_lines).numpy()
 
 sse = []
 #To choose the most suitable range for your dataset, you can experiment with different k ranges, such as 1-15 or 1-20, and compare the results. Keep in mind that as you increase the maximum k value, the computation time for the elbow method will also increase.
-k_values = range(1, 16)
+k_values = range(1, 25)
 for k in k_values:
     kmeans = KMeans(n_clusters=k, random_state=42)
     kmeans.fit(embeddings)
@@ -144,41 +144,30 @@ for cluster_label, cluster_list in enumerate(cluster_lists):
         'lines': cluster_list
     })
 
-# Sort cluster_data by the number of lines (descending) and similarity (descending)
+# Sort cluster_data by the number of lines (descending) and similarity threshold (cutoff)
+cutoff = 0.270
 sorted_cluster_data = sorted(cluster_data, key=lambda x: (-len(x['lines']), x['similarity']))
 
-cutoff = 0.270
+# Filter the clusters based on the similarity cutoff
+filtered_cluster_data = list(filter(lambda cluster: cluster['similarity'] > cutoff, sorted_cluster_data))
 
-# Print clusters with similarity > 0.299 first
 print(colored("\n\n[+] HIGH Priority News Clusters:\n", "magenta"))
 
-for cluster in sorted_cluster_data:
-    if cluster['similarity'] > cutoff:
-        sentiment = analyze_sentiment(' '.join(cluster['top_words']))
-        sentiment_color = 'green' if sentiment == 'positive' else 'red' if sentiment == 'negative' else 'yellow'
+for cluster in filtered_cluster_data:
+    sentiment = analyze_sentiment(' '.join(cluster['top_words']))
+    sentiment_color = 'green' if sentiment == 'positive' else 'red' if sentiment == 'negative' else 'yellow'
 
-        print(f"\nCluster {cluster['label']} (Cluster Similarity: {cluster['similarity']:.4f}):")
-        print(colored(f"Top words: {', '.join(cluster['top_words'])}", sentiment_color), compound_score)
-        for line in cluster['lines']:
-            print(colored(f"  {line}", "cyan"))
-        print()
+    print(f"\nCluster {cluster['label']} (Cluster Similarity: {cluster['similarity']:.4f}):")
+    print(colored(f"Top words: {', '.join(cluster['top_words'])}", sentiment_color), compound_score)
+    for line in cluster['lines']:
+        print(colored(f"  {line}", "cyan"))
+    print()
 
-# Print remaining clusters
-print(colored("\n\n[-] LOW Priority News Clusters:", "magenta"))
-for cluster in sorted_cluster_data:
-    if cluster['similarity'] <= cutoff:
-        sentiment = analyze_sentiment(' '.join(cluster['top_words']))
-        sentiment_color = 'green' if sentiment == 'positive' else 'red' if sentiment == 'negative' else 'yellow'
 
-        print(f"\nCluster {cluster['label']} (Cluster Similarity: {cluster['similarity']:.4f}):")
-        print(colored(f"Top words: {', '.join(cluster['top_words'])}", sentiment_color), compound_score)
-        for line in cluster['lines']:
-            print(colored(f"  {line}", "cyan"))
-        print()
 
-#create prompt (just for copy & paste into GPT / should be API integration if you have the tokens :) )
-cluster = sorted_cluster_data[0]
-print(colored("\n\n[+] Generating prompt for cluster: ", "magenta"), cluster['label'])
+#create prompt [1] most prevelant theme to trade on
+cluster = filtered_cluster_data[0]
+print(colored("\n\n[+] Generating top prompt for cluster: ", "magenta"), cluster['label'])
 
 sentiment = analyze_sentiment(' '.join(cluster['top_words']))
 sentiment_decision = 'positive' if sentiment == 'positive' else 'negative' if sentiment == 'negative' else 'negative'
@@ -189,4 +178,27 @@ news = [{'headline': line} for line in cluster['lines']]
 print(f"\nHere are the headlines (each headline starts with headline:) that are important for this analysis: {news}\n\nI want to trade the market today and I want you to analyze some of the current news headlines I have harvested to make a decision on how to trade. Only consider headlines which have the same underlying meaning with these themes: \"{top_words}\", make sure to include all headlines which match this criteria in your analysis and discard the other headlines from your analysis that don't. You can choose to long buy(a specific financial instrument which aligns with your trading analysis) or short sell(a specific financial instrument which aligns with your trading analysis). Overall, the sentiment appears it could be {sentiment_decision} based on my research of the news headlines, but I may be wrong. Pick out specific details from the headlines and let’s think about this step by step to create a trading strategy:\n\n")
 
 
+#create prompt [2] 2nd most prevelant theme to trade on
+cluster = filtered_cluster_data[1]
+print(colored("\n\n[+] Generating 2nd prompt for cluster: ", "cyan"), cluster['label'])
 
+sentiment = analyze_sentiment(' '.join(cluster['top_words']))
+sentiment_decision = 'positive' if sentiment == 'positive' else 'negative' if sentiment == 'negative' else 'negative'
+top_words = ' '.join(cluster['top_words'])
+news = [{'headline': line} for line in cluster['lines']]
+
+
+print(f"\nHere are the headlines (each headline starts with headline:) that are important for this analysis: {news}\n\nI want to trade the market today and I want you to analyze some of the current news headlines I have harvested to make a decision on how to trade. Only consider headlines which have the same underlying meaning with these themes: \"{top_words}\", make sure to include all headlines which match this criteria in your analysis and discard the other headlines from your analysis that don't. You can choose to long buy(a specific financial instrument which aligns with your trading analysis) or short sell(a specific financial instrument which aligns with your trading analysis). Overall, the sentiment appears it could be {sentiment_decision} based on my research of the news headlines, but I may be wrong. Pick out specific details from the headlines and let’s think about this step by step to create a trading strategy:\n\n")
+
+
+#create prompt [3] 3rd most prevelant theme to trade on
+cluster = filtered_cluster_data[2]
+print(colored("\n\n[+] Generating 3rd prompt for cluster: ", "yellow"), cluster['label'])
+
+sentiment = analyze_sentiment(' '.join(cluster['top_words']))
+sentiment_decision = 'positive' if sentiment == 'positive' else 'negative' if sentiment == 'negative' else 'negative'
+top_words = ' '.join(cluster['top_words'])
+news = [{'headline': line} for line in cluster['lines']]
+
+
+print(f"\nHere are the headlines (each headline starts with headline:) that are important for this analysis: {news}\n\nI want to trade the market today and I want you to analyze some of the current news headlines I have harvested to make a decision on how to trade. Only consider headlines which have the same underlying meaning with these themes: \"{top_words}\", make sure to include all headlines which match this criteria in your analysis and discard the other headlines from your analysis that don't. You can choose to long buy(a specific financial instrument which aligns with your trading analysis) or short sell(a specific financial instrument which aligns with your trading analysis). Overall, the sentiment appears it could be {sentiment_decision} based on my research of the news headlines, but I may be wrong. Pick out specific details from the headlines and let’s think about this step by step to create a trading strategy:\n\n")
