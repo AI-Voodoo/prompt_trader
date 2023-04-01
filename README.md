@@ -36,5 +36,5 @@ Top Prompt:
 LLM Answer:
 ![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/p1-answer.png?raw=true)
 
-Perform K-means clustering on the embeddings and assign each headline to its corresponding cluster
-![Alt text describing the image]()
+Market Validation: EUR/USD
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/EUR-USD.png?raw=true)
