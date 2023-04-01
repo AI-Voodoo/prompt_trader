@@ -53,10 +53,10 @@ Market Validation: PDR S&P 500 ETF (SPY)
 #### 3rd prompt Q & A with LLM + Market Validation
 
 3rd Prompt:
-![Alt text describing the image]()
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/3rd-prompt.png?raw=true)
 
 LLM Answer:
-![Alt text describing the image]()
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/3rd-answer.png?raw=true)
 
-Market Validation: 
-![Alt text describing the image]()
+Market Validation: Digital World Acquisition Corp. (DWAC) Trump exposure
+![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/DWAC.png?raw=true)
