@@ -6,21 +6,22 @@ By preprocessing, clustering, and analyzing the sentiment of headlines, the scri
 The prompts are designed in a way that provides clear instructions to the AI model, allowing it to focus on the specific themes and sentiment found in the headlines. This approach helps the generative AI model to produce more relevant and context-aware trading strategies based on the input prompts and actually return specific trading instruments it deems useful to achieve the strategy objectives.
 
 
-The script follows these main steps:
+## The script follows these main steps:
 
-Import the necessary libraries and modules for text processing, clustering, and visualization.
-Download the required NLTK resources, such as tokenizers, stopwords, and sentiment lexicons.
-Define the preprocess_text function to remove punctuation, tokenize, filter stopwords, lemmatize, and keep only alphabetic tokens with length greater than 1.
-Define the find_elbow_point function to find the optimal k value for clustering using the elbow method.
-Define the analyze_sentiment function to compute the sentiment of a given text using the SentimentIntensityAnalyzer from NLTK.
-Read the "100-headlines.txt" file and preprocess each headline, storing them in separate lists for further processing.
-Load the Universal Sentence Encoder from TensorFlow Hub and compute embeddings for the preprocessed headlines.
-Perform K-means clustering on the embeddings using a range of k values, and plot the elbow method graph to find the optimal k value.
-Fit the K-means model with the optimal k value and assign each headline to its corresponding cluster.
-Calculate the average similarity and top words within each cluster.
-Filter the clusters based on a similarity threshold (cutoff) and sort them in descending order based on the number of headlines and similarity.
-Print the high-priority news clusters with their top words, sentiment, and headlines.
-For the top three clusters, generate trading prompts that include the cluster's top words, sentiment, and headlines. The prompts ask the user to create a trading strategy based on the given information.
+1. Import the necessary libraries and modules for text processing, clustering, and visualization. Download the required NLTK resources, such as tokenizers, stopwords, and sentiment lexicons.
+2. Define the preprocess_text function to remove punctuation, tokenize, filter stopwords, lemmatize, and keep only alphabetic tokens with length greater than 1.
+3. Define the find_elbow_point function to find the optimal k value for clustering using the elbow method.
+4. Define the analyze_sentiment function to compute the sentiment of a given text using the SentimentIntensityAnalyzer from NLTK.
+5. Read the "100-headlines.txt" file and preprocess each headline, storing them in separate lists for further processing.
+6. Load the Universal Sentence Encoder from TensorFlow Hub and compute embeddings for the preprocessed headlines.
+7. Perform K-means clustering on the embeddings using a range of k values, and plot the elbow method graph to show the optimal k value. Fit the K-means model with the optimal k value and assign each headline to its corresponding cluster.
+8. Calculate the average similarity and top words within each cluster.
+9. Filter the clusters based on a similarity threshold (cutoff) and sort them in descending order based on the number of headlines and similarity.
+10 Print the high-priority news clusters with their top words, sentiment, and headlines.
+11. For the top three clusters, generate trading prompts that include the cluster's top words, sentiment, and headlines. The prompts ask the LLM to create a trading strategy based on the given information.
+
+
+
 This script provides a systematic way to analyze news headlines, group them into clusters based on their semantic similarity, and then use the information from the top clusters to generate trading prompts for the user.
 
 ## Initial News Headline Clustering & Sentiment Results:
