@@ -38,3 +38,14 @@ LLM Answer:
 
 Market Validation: EUR/USD
 ![Alt text describing the image](https://github.com/AI-Voodoo/prompt_trader/blob/main/assets/EUR-USD.png?raw=true)
+
+#### 2nd prompt Q & A with LLM + Market Validation
+
+2nd Prompt:
+![Alt text describing the image]()
+
+LLM Answer:
+![Alt text describing the image]()
+
+Market Validation:
+![Alt text describing the image]()
