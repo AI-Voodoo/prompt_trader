@@ -9,7 +9,7 @@ The prompts are designed in a way that provides clear instructions to the AI mod
 ## The script follows these main steps:
 
 1. Import the necessary libraries and modules for text processing, clustering, and visualization. Download the required NLTK resources, such as tokenizers, stopwords, and sentiment lexicons.
-2. Define the preprocess_text function to remove punctuation, tokenize, filter stopwords, lemmatize, and keep only alphabetic tokens with length greater than 1.
+2. Define the preprocess_text function to remove punctuation, tokenize, filter stopwords, lemmatize, and keep only alphabetic tokens with length greater than
 3. Define the find_elbow_point function to find the optimal k value for clustering using the elbow method.
 4. Define the analyze_sentiment function to compute the sentiment of a given text using the SentimentIntensityAnalyzer from NLTK.
 5. Read the "100-headlines.txt" file and preprocess each headline, storing them in separate lists for further processing.
