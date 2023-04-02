@@ -17,7 +17,7 @@ The prompts are designed in a way that provides clear instructions to the AI mod
 7. Perform K-means clustering on the embeddings using a range of k values, and plot the elbow method graph to show the optimal k value. Fit the K-means model with the optimal k value and assign each headline to its corresponding cluster.
 8. Calculate the average similarity and top words within each cluster.
 9. Filter the clusters based on a similarity threshold (cutoff) and sort them in descending order based on the number of headlines and similarity.
-10 Print the high-priority news clusters with their top words, sentiment, and headlines.
+10. Print the high-priority news clusters with their top words, sentiment, and headlines.
 11. For the top three clusters, generate trading prompts that include the cluster's top words, sentiment, and headlines. The prompts ask the LLM to create a trading strategy based on the given information.
 
 
